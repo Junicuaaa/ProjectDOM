@@ -1,0 +1,13 @@
+*{
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+a{
+    font-weight: 500;
+}
+.img-responsive{
+    width: 400px;
+}
