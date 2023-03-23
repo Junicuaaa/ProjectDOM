@@ -6,3 +6,4 @@ header.titleList();
 header.aldeasList();
 banner.importBanner();
 card.mostrarCard();
+header.InfoPagina();
