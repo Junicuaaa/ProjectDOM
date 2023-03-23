@@ -1,13 +1,100 @@
-*{
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.cards-container {
+    scrollbar-color: #4a4a4a #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+.cards-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+    background-color: #cbcbcb;
+    border-radius: 4px;
+}
+
+
+* {
     font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
     list-style: none;
+}
+    body {
+        background-color: azure;
+    }
 
-}
-a{
-    font-weight: 500;
-}
-.img-responsive{
-    width: 400px;
-}
+    .modal-alert {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.777);
+        backdrop-filter: blur(0.5em);
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+    }
+
+    .modal-alert-close {
+        animation-name: modal-alert-close;
+        animation-duration: .5s;
+        animation-timing-function: ease;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .modal-window {
+        position: fixed;
+        animation-name: modal;
+        animation-duration: .7s;
+        animation-timing-function: ease;
+        top: 20px;
+    }
+
+    .modal-window-close {
+        animation-name: modal-close;
+        animation-duration: .7s;
+        animation-timing-function: ease;
+        top: -300px;
+    }
+
+    @keyframes modal-alert-close {
+        0% {
+            opacity: 1;
+            z-index: 10;
+        }
+
+        100% {
+            opacity: 0;
+            z-index: -1;
+        }
+    }
+
+    @keyframes modal-close {
+        0% {
+            top: 20px;
+        }
+
+        100% {
+            top: -300px;
+        }
+    }
+
+    @keyframes modal {
+        0% {
+            top: -300px;
+        }
+
+        100% {
+            top: 20px;
+        }
+    }
+
+    a {
+        font-weight: 500;
+    }
+
+    .img-responsive {
+        width: 400px;
+    }
