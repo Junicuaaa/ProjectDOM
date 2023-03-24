@@ -13,7 +13,13 @@
     background-color: #cbcbcb;
     border-radius: 4px;
 }
-
+li{
+    transition: all linear .1s;
+}
+li:hover{
+    background-color: #f3b705;
+    transition: all linear .1s;
+}
 
 * {
     font-family: 'Quicksand', sans-serif;
