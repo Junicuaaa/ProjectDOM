@@ -19,4 +19,5 @@ window.addEventListener("load", (e)=>{
     }, 15000);
 }, {once: true})
 aside.showNews();
+aside.showAside();
 
