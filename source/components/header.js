@@ -71,13 +71,13 @@ export default {
             }
         }
     ],
-    titleList() {
-        let plantilla = "";
-        this.title.forEach(element => {
-            plantilla += `<img class="img-responsive" src="${element.src}" alt="${element.name}" />`
-        });
-        document.querySelector("header").insertAdjacentHTML("beforeend", plantilla);
-    },
+    // titleList() {
+    //     let plantilla = "";
+    //     this.title.forEach(element => {
+    //         plantilla += `<img class="img-responsive" src="${element.src}" alt="${element.name}" />`
+    //     });
+    //     document.querySelector("header").insertAdjacentHTML("beforeend", plantilla);
+    // },
     aldeasList() {
         let plantilla = "";
         this.aldeas.forEach(aldea => {
@@ -85,7 +85,7 @@ export default {
         });
         document.querySelector("#navbList").insertAdjacentHTML("beforeend", plantilla)
     },
-    InfoPagina(){
+    InfoPagina() {
         let html = "";
         this.aldeas.forEach(element => {
             html += `
@@ -96,5 +96,18 @@ export default {
             `
         });
         document.querySelector(".info-container").insertAdjacentHTML("beforeend", html)
+    },
+    FragShow() {
+        const ws = new Worker("services/wsHeader.js", { type: "module" });
+        let id = [];
+        let count = 0;
+        ws.postMessage({ module: "titleList", data: this.title });
+        ws.postMessage({ module: "aldeasList", data: this.aldeas });
+        id = ['#header', '#navblist'];
+        ws.addEventListener("message", (e) => {
+            let doc = new DOMParser().parseFromString(e.data, "text/html");
+            document.querySelector(id[count]).append(...doc.body.children);
+            (id.length-1==count)? ws.terminate(): count++;
+        })
     }
 }
