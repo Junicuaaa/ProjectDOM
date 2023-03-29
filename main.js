@@ -4,20 +4,19 @@ import card from "./source/components/cards.js"
 import modal from "./source/components/modal.js"
 import aside from "./source/components/aside.js";
 
-header.titleList();
-header.aldeasList();
+header.FragShow();
 banner.importBanner();
 card.mostrarCard();
 header.InfoPagina();
-window.addEventListener("load", (e)=>{
+window.addEventListener("load", (e) => {
     modal.ShowModal();
     modal.closeModal();
-    setTimeout(function() {
+    setTimeout(function () {
         let node = document.querySelector(".modal-alert");
         let padre = node.parentNode;
         padre.removeChild(node);;
     }, 15000);
-}, {once: true})
+}, { once: true })
 aside.showNews();
 aside.showAside();
 
