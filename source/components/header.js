@@ -8,7 +8,8 @@ export default {
         let count = 0;
         ws.postMessage({ module: "titleList", data: this.title });
         ws.postMessage({ module: "aldeasList", data: this.aldeas });
-        id = ['#header', '#navlist'];
+        ws.postMessage({module: "infoList", data: this.aldeas})
+        id = ['#header', '#navlist', '#info-container'];
         ws.addEventListener("message", (e) => {
             let doc = new DOMParser().parseFromString(e.data, "text/html");
             document.querySelector(id[count]).append(...doc.body.children);

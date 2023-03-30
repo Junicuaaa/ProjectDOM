@@ -3,7 +3,7 @@ export default {
         localStorage.setItem("headD", JSON.stringify({
             title: [{
                 name: "Naruto Shippuden",
-                src: "./images/Naruto_logo.png",
+                src: "images/Naruto_logo.png",
             }],
             aldeas: [
                 {
@@ -17,7 +17,7 @@ export default {
                     final de la Cuarta Gran Guerra Mundial Shinobi, sigue siendo uno de los pueblos más poderosos que existen, teniendo un gran 
                     poder militar e influencia, aunque esto había disminuido hace unos años por los ataques de Orochimaru y Pain.`,
                     img: {
-                        link: `./images/img3.jpg`,
+                        link: `images/img3.jpg`,
                         title: `Kohogakure img`
                     }
                 },
@@ -30,7 +30,7 @@ export default {
                     de esta aldea se especializan en el uso de técnicas que utilizan la naturaleza tipo Tierra. Además, se sabe que esta aldea ha 
                     tenido en su posesión dos bestias con colas: el Cuatro Colas y al Cinco Colas.`,
                     img: {
-                        link: `./images/img4.jpg`,
+                        link: `images/img4.jpg`,
                         title: `Iwagakure img`
                     }
                 },
@@ -44,7 +44,7 @@ export default {
                     de lo que el Cuarto Raikage se enorgullecía.
                     `,
                     img: {
-                        link: `./images/img5.jpg`,
+                        link: `images/img5.jpg`,
                         title: `Kumogakure img`
                     }
                 },
@@ -68,7 +68,7 @@ export default {
                     como su líder conocido como el Kazekage, el cual vive en una estructura esférica en el centro del pueblo. 
                     Hasta ahora ha habido cinco Kazekages, Gaara es de estos el más reciente.`,
                     img: {
-                        link: `./images/img7.jpg`,
+                        link: `images/img7.jpg`,
                         title: `Sunagakure img`
                     }
                 }

@@ -12,6 +12,17 @@ let wsHeader = {
             plantilla += `<li class=""><a class="nav-link text-white" href="${aldea.href}">${aldea.name}</a></li>`;
         });
         return plantilla
+    },
+    infoList(p1){
+        let plantilla = "";
+        p1.forEach(element => {
+            plantilla += `
+            <h3>${element.name}</h3>
+            <p>${element.info}</p>
+            <img src="${element.img.link}" class="img-fluid" alt="${element.img.titleList}"></img>
+            `
+        });
+        return plantilla
     }
 }
 self.addEventListener("message", (e)=> {
