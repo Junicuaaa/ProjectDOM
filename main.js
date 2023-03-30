@@ -5,9 +5,8 @@ import modal from "./source/components/modal.js"
 import aside from "./source/components/aside.js";
 
 header.FragShow();
+card.MostrarCard();
 banner.importBanner();
-card.mostrarCard();
-header.InfoPagina();
 window.addEventListener("load", (e) => {
     modal.ShowModal();
     modal.closeModal();
@@ -17,6 +16,6 @@ window.addEventListener("load", (e) => {
         padre.removeChild(node);;
     }, 15000);
 }, { once: true })
-aside.showNews();
 aside.showAside();
+aside.showNews();
 

@@ -117,9 +117,39 @@ export default {
                             name: "Something",
                             href:"#"
                         },
-                    ]
+                    ],
                 },
             ]        
         }))
-    }
+    },
+    cardsData(){
+        localStorage.setItem("cardD", JSON.stringify({
+            cards: [
+                {
+                    title: "Last emition of Naruto",
+                    description: "The last emition of Naruto was on March 23 of 2017",
+                    img: {
+                        title: "Naruto Shippuden",
+                        url: "images/img1.png"
+                    }
+                },
+                {
+                    title: "First emition of Boruto",
+                    description: "The first emition of Boruto was on April of 2017",
+                    img: {
+                        title: "Naruto Shippuden",
+                        url: "images/img2.jpg"
+                    } 
+                },
+                {
+                    title: "Last emition of Naruto",
+                    description: "The last emition of Naruto was on March 23 of 2017",
+                    img: {
+                        title: "Naruto Shippuden",
+                        url: "images/img1.png"
+                    }
+                }
+            ]
+        }))
+    },
 }

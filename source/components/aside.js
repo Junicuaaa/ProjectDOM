@@ -1,86 +1,10 @@
-export default{
-    info:[
-        {
-            title:"Info",
-            links:[
-                {
-                    name: "Something",
-                    href:"#"
-                },
-                {
-                    name: "Something",
-                    href:"#"
-                },
-                {
-                    name: "Something",
-                    href:"#"
-                },
-                {
-                    name: "Something",
-                    href:"#"
-                },
-                {
-                    name: "Something",
-                    href:"#"
-                },
-                {
-                    name: "Something",
-                    href:"#"
-                },
-                {
-                    name: "Something",
-                    href:"#"
-                },
-                {
-                    name: "Something",
-                    href:"#"
-                },
-                {
-                    name: "Something",
-                    href:"#"
-                },
-            ]
-        },
-    ],
-
-    showAside(){
-        const data = this.info.map((val,id)=>{
-            return (
-                (val.links)
-                ? this.archive(val)
-                : this.cards(val)
-            )
-        });
-        document.querySelector("#links").insertAdjacentHTML("beforeend",data.join(""));
-
-    },
-
-    cards(element){
-        return `
-        <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">${element.title}</h4>
-            <p class="mb-0">${element.text}</p>
-        </div>
-        `
-    },
-
-    archive (element){
-        return `
-        <div class="p-4">
-        <h4 class="fst-italic">${element.title}</h4>
-        <ol class="list-unstyled mb-0">
-            ${element.links.map((val,id) => `<li><a target="_blank" href="${val.href}">${val.name}</a></li>`).join("")} 
-        </ol>
-    </div>
-        `
-    },
-    
-    
+import config from "../../config/config.js"
+export default {
     news: [{
         title: "News!",
         info: "something"
     }],
-    showNews(){
+    showNews() {
         let html = "";
         this.news.forEach(element => {
             html += `
@@ -89,5 +13,15 @@ export default{
             `;
         });
         document.querySelector(".about").insertAdjacentHTML("beforeend", html);
+    },
+    showAside(){
+        config.asideData();
+        Object.assign(this, JSON.parse(localStorage.getItem("asideD")));
+        const ws = new Worker("services/wsAside.js", {type: "module"});
+        ws.postMessage({data: this.info})
+        ws.addEventListener("message", (e)=>{
+            let doc = new DOMParser().parseFromString(e.data, "text/html");
+            document.querySelector("#links").append(...doc.body.children);
+        })
     }
 };
